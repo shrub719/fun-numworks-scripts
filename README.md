@@ -22,13 +22,13 @@ Thanks to @ZetaMap for porting the NumWorks modules to PC!
 
 <details>
 <summary><h3>drummer.py</h3></summary>
-Like a drummer/launchpad.  
-Use the number keys to play the drums. Press . to change colours.
+Like a drummer/launchpad. <br />
+Use the number keys to play the drums. Press <strong>.</strong> to change colours.
 </details>
 
 <details>
 <summary><h3>keys.py</h3></summary>
-Like one of those MIDI piano YouTube videos.
-Use the top row of numbers `7 8 9 ( )` to play the piano keys. Press EXE to change colours.
+Like one of those MIDI piano YouTube videos. <br />
+Use the top row of numbers <code>7 8 9 ( )</code> to play the piano keys. Press <strong>EXE</strong> to change colours.
 
 </details>
