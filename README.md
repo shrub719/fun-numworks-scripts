@@ -15,7 +15,7 @@ Clone this repository, then run:
 ```
 pip install -r requirements.txt 
 ```
-Thanks to @ZetaMap for porting the NumWorks modules to PC!
+Thanks to [@ZetaMap](https://github.com/ZetaMap) for porting the NumWorks modules to PC!
 
 
 ## Scripts
