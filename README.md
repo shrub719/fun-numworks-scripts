@@ -21,14 +21,25 @@ Thanks to @ZetaMap for porting the NumWorks modules to PC!
 ## Scripts
 
 <details>
-<summary><h3>drummer.py</h3></summary>
+<summary><strong>drummer.py</strong></summary>
 Like a drummer/launchpad. <br />
 Use the number keys to play the drums. Press <strong>.</strong> to change colours.
 </details>
 
+<br />
+
 <details>
-<summary><h3>keys.py</h3></summary>
+<summary><strong>keys.py</strong></summary>
 Like one of those MIDI piano YouTube videos. <br />
 Use the top row of numbers <code>7 8 9 ( )</code> to play the piano keys. Press <strong>EXE</strong> to change colours.
+</details>
 
+<br />
+
+<details>
+<summary><strong>picker.py</strong></summary>
+A simple colour picker. <br />
+<code>4 5 6</code>: increase R/G/B value <br />
+<code>1 2 3</code>: decrease R/G/B value <br />
+<code>BACK</code>: output RGB value and exit
 </details>
