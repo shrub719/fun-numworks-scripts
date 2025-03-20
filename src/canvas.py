@@ -38,6 +38,9 @@ class Cursor:
         self.covering = get_pixel(self.x, self.y)
         self._draw()
 
+    def draw(self, colour):
+        self.covering = colour
+
 
 cursor = Cursor()
 while True:
@@ -45,3 +48,4 @@ while True:
     moveListen(KEY_RIGHT, (1, 0), cursor)
     moveListen(KEY_UP, (0, -1), cursor)
     moveListen(KEY_DOWN, (0, 1), cursor)
+    if keydown(KEY_TWO): cursor.draw((255, 0, 0))
