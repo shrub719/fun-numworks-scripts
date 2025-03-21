@@ -7,9 +7,9 @@ def draw(colour):
 
 
 def show(colour):
-    draw_string(str(colour[0]), 0, 200)
-    draw_string(str(colour[1]), 50, 200)
-    draw_string(str(colour[2]), 100, 200)
+    draw_string(str(colour[0]) + " ", 0, 200)
+    draw_string(str(colour[1]) + " ", 50, 200)
+    draw_string(str(colour[2]) + " ", 100, 200)
 
 
 def listen(key, colour, value, changeBy):
