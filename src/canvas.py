@@ -5,7 +5,7 @@ from time import sleep
 WIDTH = 320
 HEIGHT = 222
 T = 0.005
-SLOW = 0.02
+SLOW = 0.02  # TODO: slowness toggle
 
 
 def invertColor(colour):
@@ -26,6 +26,8 @@ class Cursor:
         self.circle = self.getCircleOutline()
         self.covering = [(255, 255, 255)] * 13  # keeps track of what the cursor is currently covering
         self._draw()
+        # FIX: one pixel showing up at start
+
 
     def getCircleOutline(self):
         x, y = self.x, self.y
