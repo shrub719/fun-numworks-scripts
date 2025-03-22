@@ -23,7 +23,7 @@ Thanks to [@ZetaMap](https://github.com/ZetaMap) for porting the NumWorks module
 <details>
 <summary><strong>drummer.py</strong></summary>
 Like a drummer/launchpad. <br />
-Use the number keys to play the drums. Press <strong>.</strong> to change colours.
+Use the number keys to play the drums. Press <code>.</code> to change colours.
 </details>
 
 <br />
@@ -31,7 +31,7 @@ Use the number keys to play the drums. Press <strong>.</strong> to change colour
 <details>
 <summary><strong>keys.py</strong></summary>
 Like one of those MIDI piano YouTube videos. <br />
-Use the top row of numbers <code>7 8 9 ( )</code> to play the piano keys. Press <strong>EXE</strong> to change colours.
+Use the top row of numbers <code>7 8 9 ( )</code> to play the piano keys. Press <code>EXE</code> to change colours.
 </details>
 
 <br />
@@ -42,4 +42,18 @@ A simple colour picker. <br />
 <code>4 5 6</code>: increase R/G/B value <br />
 <code>1 2 3</code>: decrease R/G/B value <br />
 <code>BACK</code>: output RGB value and exit
+</details>
+
+<br />
+
+<details>
+<summary><strong>canvas.py</strong></summary>
+A canvas that you can draw on. <br />
+<code>D-Pad</code>: move cursor <br />
+<code>OK</code>: draw <br />
+<code>TOOLBOX</code>: hold to speed up <br />
+<code>BACKSPACE</code>: hold to slow down <br />
+<code>1</code>: switch colour to black <br />
+<code>2</code>: switch to white/eraser <br />
+<code>3 4 5</code>: red/green/blue <br />
 </details>
