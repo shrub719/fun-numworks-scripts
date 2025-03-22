@@ -68,6 +68,7 @@ class Cursor:
     def draw(self, colour):
         for position in self.getCircle():
             set_pixel(position[0], position[1], colour)
+        self.covering = [colour] * 13
 
 
 cursor = Cursor()
