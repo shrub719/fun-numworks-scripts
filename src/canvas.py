@@ -4,9 +4,7 @@ from time import sleep
 
 WIDTH = 320
 HEIGHT = 222
-SLOW = 0.01
-FAST = 0.002
-diff = SLOW - FAST
+T = 0.01
 
 
 def invertColor(colour):
@@ -16,8 +14,7 @@ def invertColor(colour):
 def moveListen(key, vector, cursor):
     if keydown(key):
         cursor.move(vector)
-        sleep(FAST)
-        if not keydown(KEY_TOOLBOX): sleep(diff)
+        if not keydown(KEY_TOOLBOX): sleep(T)
 
 
 class Cursor:
