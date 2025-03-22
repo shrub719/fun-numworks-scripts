@@ -3,6 +3,7 @@ from ion import *
 
 COLOURS = [
     ["black"] * 5 + ["white"],
+    ["#ffb734"] * 5 + ["white"],
     ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#a0c4ff", "white"],
     ["#5BCEFA", "#F5A9B8", "#5BCEFA", "#F5A9B8", "#5BCEFA", "white"],
     ["white"] * 5 + ["black"],
