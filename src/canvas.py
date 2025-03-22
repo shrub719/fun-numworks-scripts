@@ -21,20 +21,38 @@ class Cursor:
     def __init__(self):
         self.x = WIDTH //  2
         self.y = HEIGHT // 2
-        self.covering = (255, 255, 255)  # keeps track of what the cursor is currently covering
+        self.circle = self.getCircle()
+        self.covering = [(255, 255, 255)] * 13  # keeps track of what the cursor is currently covering
         self._draw()
 
+    def getCircle(self):
+        x, y = self.x, self.y
+        cEdge = lambda y2: [(x-2, y2), (x+2, y2)]
+        cCap = lambda y2: [(x-1, y2), (x, y2), (x+1, y2)]
+        l = cCap(y+2)
+        l.extend(cEdge(y+1))
+        l.extend(cEdge(y))
+        l.extend(cEdge(y-1))
+        l.extend(cCap(y-2))
+        return l
+
+
     def _draw(self):
-        set_pixel(self.x, self.y, invertColor(self.covering))
+        self.circle = self.getCircle()
+        for i, position in enumerate(self.circle):
+            x, y = position[0], position[1]
+            colour = get_pixel(x, y)
+            self.covering[i] = colour
+            set_pixel(x, y, invertColor(colour))
 
     def _undraw(self):
-        set_pixel(self.x, self.y, self.covering)
+        for position, colour in zip(self.circle, self.covering):
+            set_pixel(position[0], position[1], colour)
 
     def move(self, vector):
         self._undraw()
         self.x += vector[0]
         self.y += vector[1]
-        self.covering = get_pixel(self.x, self.y)
         self._draw()
 
     def draw(self, colour):
