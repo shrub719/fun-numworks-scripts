@@ -23,13 +23,13 @@ class Cursor:
     def __init__(self):
         self.x = WIDTH //  2
         self.y = HEIGHT // 2
-        self.circle = self.getCircleOutline()
+        self.circle = self.getOutline()
         self.covering = [(255, 255, 255)] * 13  # keeps track of what the cursor is currently covering
         self._draw()
         # FIX: one pixel showing up at start
 
 
-    def getCircleOutline(self):
+    def getOutline(self):
         x, y = self.x, self.y
         cEdge = lambda y2: [(x-2, y2), (x+2, y2)]
         cCap = lambda y2: [(x-1, y2), (x, y2), (x+1, y2)]
@@ -40,7 +40,7 @@ class Cursor:
         l.extend(cCap(y-2))
         return l
 
-    def getCircle(self):
+    def getFill(self):
         x, y = self.x, self.y
         cEdge = lambda y2: [(x-2, y2), (x-1, y2), (x, y2), (x+1, y2), (x+2, y2)]
         cCap = lambda y2: [(x-1, y2), (x, y2), (x+1, y2)]
@@ -52,7 +52,7 @@ class Cursor:
         return l
 
     def _draw(self):
-        self.circle = self.getCircleOutline()
+        self.circle = self.getOutline()
         for i, position in enumerate(self.circle):
             x, y = position[0], position[1]
             colour = get_pixel(x, y)
@@ -70,7 +70,7 @@ class Cursor:
         self._draw()
 
     def draw(self, colour):
-        for position in self.getCircle():
+        for position in self.getFill():
             set_pixel(position[0], position[1], colour)
         self.covering = [colour] * 13
 
