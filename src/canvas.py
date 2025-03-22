@@ -26,8 +26,7 @@ class Cursor:
         self.circle = self.getOutline()
         self.covering = [(255, 255, 255)] * 13  # keeps track of what the cursor is currently covering
         self._draw()
-        # FIX: one pixel showing up at start
-
+        # FIXME: one pixel showing up at start
 
     def getOutline(self):
         x, y = self.x, self.y
@@ -64,6 +63,10 @@ class Cursor:
         self._undraw()
         self.x += vector[0]
         self.y += vector[1]
+        if self.x < 0: self.x = 0
+        if self.y < 0: self.y = 0
+        if self.x > WIDTH: self.x = WIDTH
+        if self.y > HEIGHT: self.y = HEIGHT
         self._draw()
 
     def draw(self, colour):
