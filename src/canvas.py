@@ -84,6 +84,7 @@ while True:
     moveListen(KEY_DOWN, (0, 1), cursor)
     if keydown(KEY_OK): cursor.draw(colour)
     if keydown(KEY_ONE): colour = "black"
+    if keydown(KEY_TWO): colour = "white"
     if keydown(KEY_FOUR): colour = "red"
     if keydown(KEY_FIVE): colour = "green"
     if keydown(KEY_SIX): colour = "blue"
