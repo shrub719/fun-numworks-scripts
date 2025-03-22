@@ -8,7 +8,7 @@ T = 0.005
 SLOW = 0.02  # TODO: slowness toggle
 
 
-def invertColor(colour):
+def invertColour(colour):
     return tuple(255 - value for value in colour)
 
 
@@ -53,7 +53,7 @@ class Cursor:
             x, y = position[0], position[1]
             colour = get_pixel(x, y)
             self.covering[i] = colour
-            set_pixel(x, y, invertColor(colour))
+            set_pixel(x, y, invertColour(colour))
 
     def _undraw(self):
         for position, colour in zip(self.circle, self.covering):
