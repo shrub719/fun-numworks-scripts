@@ -42,13 +42,10 @@ class Cursor:
 
     def getFill(self):
         x, y = self.x, self.y
-        cEdge = lambda y2: [(x-2, y2), (x-1, y2), (x, y2), (x+1, y2), (x+2, y2)]
-        cCap = lambda y2: [(x-1, y2), (x, y2), (x+1, y2)]
-        l = cCap(y + 2)
-        l.extend(cEdge(y + 1))
-        l.extend(cEdge(y))
-        l.extend(cEdge(y - 1))
-        l.extend(cCap(y - 2))
+        row = lambda y2: [(x-1, y2), (x, y2), (x+1, y2)]
+        l = row(y+1)
+        l.extend(row(y))
+        l.extend(row(y-1))
         return l
 
     def _draw(self):
