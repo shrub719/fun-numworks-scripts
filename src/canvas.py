@@ -12,13 +12,6 @@ def invertColour(colour):
     return tuple(255 - value for value in colour)
 
 
-def moveListen(key, vector, cursor):
-    if keydown(key):
-        cursor.move(vector)
-        if not keydown(KEY_TOOLBOX): sleep(T)
-        if keydown(KEY_BACKSPACE): sleep(SLOW)
-
-
 class Cursor:
     def __init__(self):
         self.x = WIDTH //  2
@@ -75,10 +68,22 @@ class Cursor:
         self.covering = [colour] * 13
 
 
+def moveListen(key, vector, cursor):
+    if keydown(key):
+        cursor.move(vector)
+        if not keydown(KEY_TOOLBOX): sleep(T)
+        if keydown(KEY_BACKSPACE): sleep(SLOW)
+
+
 cursor = Cursor()
+colour = "black"
 while True:
     moveListen(KEY_LEFT, (-1, 0), cursor)
     moveListen(KEY_RIGHT, (1, 0), cursor)
     moveListen(KEY_UP, (0, -1), cursor)
     moveListen(KEY_DOWN, (0, 1), cursor)
     if keydown(KEY_OK): cursor.draw((255, 0, 0))
+    if keydown(KEY_ONE): colour = "black"
+    if keydown(KEY_FOUR): colour = "red"
+    if keydown(KEY_FIVE): colour = "green"
+    if keydown(KEY_SIX): colour = "blue"
