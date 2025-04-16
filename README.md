@@ -1,5 +1,5 @@
 # Fun NumWorks Scripts
-A collection of fun little Python scripts for the Numworks calculator.  
+A collection of fun little Python scripts for the NumWorks calculator.  
 
 
 ## Installation
