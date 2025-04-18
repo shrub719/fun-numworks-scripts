@@ -1,5 +1,5 @@
 # Fun NumWorks Scripts
-A collection of fun little Python scripts for the Numworks calculator.  
+A collection of fun little Python scripts for the NumWorks calculator.  
 
 
 ## Installation
@@ -55,5 +55,5 @@ A canvas that you can draw on. <br />
 <code>BACKSPACE</code>: hold to slow down <br />
 <code>1</code>: switch colour to black <br />
 <code>2</code>: switch to white/eraser <br />
-<code>3 4 5</code>: red/green/blue <br />
+<code>4 5 6</code>: red/green/blue <br />
 </details>
