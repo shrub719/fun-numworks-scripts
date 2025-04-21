@@ -1,15 +1,15 @@
-# [WIP]
+from r_cuboid import OBJECT
+
 from kandinsky import *
 from ion import *
 from math import sin, cos
-# 320 x 222
 
-from r_cube import OBJECT
 
 X = 320 // 2
 Y = 222 // 2
 SPEED = 0.01
 SCALE = 50
+
 
 def matrix_mul(A, B):
     result = tuple(sum(a * b for a, b in zip(A_row, B)) for A_row in A)
