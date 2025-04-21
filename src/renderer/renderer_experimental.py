@@ -4,7 +4,7 @@ from ion import *
 from math import sin, cos
 # 320 x 222
 
-from r_cube import OBJECT
+from r_cube import OBJECT, FACES
 
 X = 320 // 2
 Y = 222 // 2
@@ -22,10 +22,19 @@ def to_coords(point):
     return round(x), round(y)
 
 
+def populate(face):
+    return [to_coords(OBJECT[point]) for point in face[0]]
+
+
+def fill_polygon(coords, colour):
+    # TODO: approximate polygon with rectangles. hmm
+    for x, y in coords:
+        fill_rect(x, y, 5, 5, colour)
+
+
 def draw_obj(obj):
-    for point in obj:
-        x, y = to_coords(point)
-        fill_rect(x, y, 5, 5, "black")
+    for i, face in enumerate(FACES):
+        fill_polygon(populate(face), face[1])
 
 
 def erase_obj(obj):
