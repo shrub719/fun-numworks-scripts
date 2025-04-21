@@ -20,40 +20,43 @@ Thanks to [@ZetaMap](https://github.com/ZetaMap) for porting the NumWorks module
 
 ## Scripts
 
-<details>
-<summary><strong>drummer.py</strong></summary>
-Like a drummer/launchpad. <br />
-Use the number keys to play the drums. Press <code>.</code> to change colours.
-</details>
+- [Renderer](#renderer)
+- [Canvas](#canvas)
+- [Drummer](#drummer)
+- [Keys](#keys)
+- [Picker](#picker)
 
-<br />
+### Renderer
+A 3D object renderer which can rotate and scale an object.
 
-<details>
-<summary><strong>keys.py</strong></summary>
-Like one of those MIDI piano YouTube videos. <br />
-Use the top row of numbers <code>7 8 9 ( )</code> to play the piano keys. Press <code>EXE</code> to change colours.
-</details>
+`D-Pad`: pitch & yaw  
+`SHIFT / ALPHA`: roll  
+`- / +`: scale
 
-<br />
+### Canvas
+A canvas that you can draw on.
 
-<details>
-<summary><strong>picker.py</strong></summary>
-A simple colour picker. <br />
-<code>4 5 6</code>: increase R/G/B value <br />
-<code>1 2 3</code>: decrease R/G/B value <br />
-<code>BACK</code>: output RGB value and exit
-</details>
+`D-Pad`: move cursor  
+`OK`: draw  
+`TOOLBOX`: hold to speed up  
+`BACKSPACE`: hold to slow down  
+`1`: switch colour to black  
+`2`: switch to white/eraser  
+`4 5 6`: red/green/blue
 
-<br />
+### Drummer
+Like a drummer/launchpad.
 
-<details>
-<summary><strong>canvas.py</strong></summary>
-A canvas that you can draw on. <br />
-<code>D-Pad</code>: move cursor <br />
-<code>OK</code>: draw <br />
-<code>TOOLBOX</code>: hold to speed up <br />
-<code>BACKSPACE</code>: hold to slow down <br />
-<code>1</code>: switch colour to black <br />
-<code>2</code>: switch to white/eraser <br />
-<code>4 5 6</code>: red/green/blue <br />
-</details>
+Use the number keys to play the drums. Press `.` to change colours.
+
+### Keys
+Like one of those MIDI piano YouTube videos.
+
+Use the top row of numbers `7 8 9 ( )` to play the piano keys. Press `EXE` to change colours.
+
+### Picker
+A simple colour picker.
+
+`4 5 6`: increase R/G/B value  
+`1 2 3`: decrease R/G/B value  
+`BACK`: output RGB value and exit
