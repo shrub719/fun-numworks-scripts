@@ -26,14 +26,15 @@ Thanks to [@ZetaMap](https://github.com/ZetaMap) for porting the NumWorks module
 - [Keys](#keys)
 - [Picker](#picker)
 
-### Renderer
-A 3D object renderer which can rotate and scale an object.
+### [Renderer](src/renderer/renderer.py)
+A 3D object renderer which can rotate and scale an object.  
+Also needs [r_cube.py](src/renderer/r_cube.py) to be downloaded.
 
 `D-Pad`: pitch & yaw  
 `SHIFT / ALPHA`: roll  
 `- / +`: scale
 
-### Canvas
+### [Canvas](src/canvas.py)
 A canvas that you can draw on.
 
 `D-Pad`: move cursor  
@@ -44,17 +45,17 @@ A canvas that you can draw on.
 `2`: switch to white/eraser  
 `4 5 6`: red/green/blue
 
-### Drummer
+### [Drummer](src/drummer.py)
 Like a drummer/launchpad.
 
 Use the number keys to play the drums. Press `.` to change colours.
 
-### Keys
+### [Keys](src/keys.py)
 Like one of those MIDI piano YouTube videos.
 
 Use the top row of numbers `7 8 9 ( )` to play the piano keys. Press `EXE` to change colours.
 
-### Picker
+### [Picker](src/picker.py)
 A simple colour picker.
 
 `4 5 6`: increase R/G/B value  
