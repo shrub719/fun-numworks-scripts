@@ -9,7 +9,7 @@ COLOURS = [
     ["white"] * 5 + ["black"],
 ]
 KEYS = [KEY_SEVEN, KEY_EIGHT, KEY_NINE, KEY_LEFTPARENTHESIS, KEY_RIGHTPARENTHESIS]
-HEIGHT = 8
+HEIGHT = 11
 c_preset = 0
 
 
