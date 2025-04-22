@@ -11,7 +11,7 @@ SPEED = 0.01
 SCALE = 50
 
 
-def rotate(rotation, coordinate):
+def rotate_point(rotation, coordinate):
     result = tuple(sum(a * b for a, b in zip(row, coordinate)) for row in rotation)
     return result
 
@@ -54,7 +54,7 @@ def rotate(obj, angle, axis):
             (0, 0, 1)
         ]
 
-    return [rotate(rotation, point) for point in obj]
+    return [rotate_point(rotation, point) for point in obj]
 
 
 def get_keys():
@@ -74,6 +74,8 @@ def get_rotation(obj):
     global SCALE
     keys = get_keys()
 
+    if sum(keys):
+        draw_obj(obj, erase=True)
     if keys[0]:
         obj = rotate(obj, -SPEED, 0)
     if keys[1]:
@@ -90,8 +92,7 @@ def get_rotation(obj):
         SCALE -= 1
     if keys[7]:
         SCALE += 1
-    if sum(keys):
-        draw_obj(obj, erase=True)
+
 
     return obj
 
