@@ -6,6 +6,10 @@ for i in range(8):
     point = tuple(x * 2 - 1 for x in point)
     cube.append(point)
 
+edges = [
+    (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (0, 7)
+]
+
 faces = [
     ([0, 1, 2, 3], "black"),
     ([4, 5, 6, 7], "black"),
@@ -17,7 +21,9 @@ faces = [
 
 OBJECT = cube   # list of points, as coordinates
 FACES = faces   # list of faces, as indexes in POINTS
+EDGES = edges   # list of edges, as indexes in POINTS
 
 if __name__ == "__main__":
     print(OBJECT)
     print(FACES)
+    print(EDGES)
