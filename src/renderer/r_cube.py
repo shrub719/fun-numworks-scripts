@@ -21,9 +21,7 @@ faces = [
 
 OBJECT = cube   # list of points, as coordinates
 FACES = faces   # list of faces, as indexes in POINTS
-EDGES = edges   # list of edges, as indexes in POINTS
 
 if __name__ == "__main__":
     print(OBJECT)
     print(FACES)
-    print(EDGES)

@@ -85,10 +85,13 @@ def get_keys():
     ]
 
 
-def get_input(x, y, z, scale):
+def get_input(x, y, z, scale, in_place=False):
     keys = get_keys()
 
     redraw = sum(keys)
+
+    if in_place:
+        x, y, z = 0, 0, 0
 
     if keys[0]:
         x -= SPEED
