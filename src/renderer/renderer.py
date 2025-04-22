@@ -119,9 +119,10 @@ obj = OBJECT
 
 draw_obj(obj, scale)
 while True:
+    old_scale = scale
     redraw, x, y, z, scale = get_input(x, y, z, scale)
     if redraw:
         new_obj = rotate(OBJECT, x, y, z)
-        erase_obj(obj, scale)
+        erase_obj(obj, old_scale)
         obj = new_obj
         draw_obj(obj, scale)
