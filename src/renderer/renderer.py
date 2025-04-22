@@ -8,7 +8,7 @@ from time import sleep
 
 X = 320 // 2
 Y = 222 // 2
-SPEED = 0.01
+SPEED = 0.02
 
 
 def matrix_mul(A, B):
@@ -21,17 +21,21 @@ def rotate_point(rotation, coordinate):
     return result
 
 
-def to_coords(point):
-    x = X + SCALE * point[0]
-    y = Y + SCALE * point[1]
+def to_coords(point, scale):
+    x = X + scale * point[0]
+    y = Y + scale * point[1]
     return round(x), round(y)
 
 
-def draw_obj(obj):
-    coords = [to_coords(point) for point in obj]
+def draw_obj(obj, scale, colour="black"):
+    coords = [to_coords(point, scale) for point in obj]
     for point in coords:
         x, y = point
-        fill_rect(x, y, 5, 5, "black")
+        fill_rect(x, y, 5, 5, colour)
+
+
+def erase_obj(obj, scale):
+    draw_obj(obj, scale, colour="white")
 
 
 def rotate(obj, x, y, z):
@@ -106,41 +110,15 @@ def get_input(x, y, z, scale):
     return redraw, x, y, z, scale
 
 
-def get_rotation(obj):
-    global SCALE, x, y, z
-    keys = get_keys()
-    redraw = sum(keys)
-
-    if redraw:
-        draw_obj()
-
-    if keys[0]:
-        x -= SPEED
-    if keys[1]:
-        x += SPEED
-    if keys[2]:
-        y -= SPEED
-    if keys[3]:
-        y += SPEED
-    if keys[4]:
-        z -= SPEED
-    if keys[5]:
-        z += SPEED
-    if keys[6]:
-        SCALE -= 1
-    if keys[7]:
-        SCALE += 1
-
-    obj = rotate(obj, x, y, z)
-    if redraw:
-        draw_obj(obj)
-
-    return obj
-
-
 x, y, z = 0, 0, 0
 scale = 50
-draw_obj(OBJECT)
+obj = OBJECT
+
+draw_obj(obj, scale)
 while True:
     redraw, x, y, z, scale = get_input(x, y, z, scale)
-    get_rotation(OBJECT)
+    if redraw:
+        new_obj = rotate(OBJECT, x, y, z)
+        erase_obj(obj, scale)
+        obj = new_obj
+        draw_obj(obj, scale)
