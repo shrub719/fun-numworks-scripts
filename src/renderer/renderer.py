@@ -11,8 +11,8 @@ SPEED = 0.01
 SCALE = 50
 
 
-def matrix_mul(A, B):
-    result = tuple(sum(a * b for a, b in zip(A_row, B)) for A_row in A)
+def rotate(rotation, coordinate):
+    result = tuple(sum(a * b for a, b in zip(row, coordinate)) for row in rotation)
     return result
 
 
@@ -22,16 +22,14 @@ def to_coords(point):
     return round(x), round(y)
 
 
-def draw_obj(obj):
+def draw_obj(obj, erase=False):
+    if erase:
+        colour = "white"
+    else:
+        colour = "black"
     for point in obj:
         x, y = to_coords(point)
-        fill_rect(x, y, 5, 5, "black")
-
-
-def erase_obj(obj):
-    for point in obj:
-        x, y = to_coords(point)
-        fill_rect(x, y, 5, 5, "white")
+        fill_rect(x, y, 5, 5, colour)
 
 
 def rotate(obj, angle, axis):
@@ -56,7 +54,7 @@ def rotate(obj, angle, axis):
             (0, 0, 1)
         ]
 
-    return [matrix_mul(rotation, point) for point in obj]
+    return [rotate(rotation, point) for point in obj]
 
 
 def get_keys():
@@ -75,8 +73,7 @@ def get_keys():
 def get_rotation(obj):
     global SCALE
     keys = get_keys()
-    if sum(keys):
-        erase_obj(obj)
+
     if keys[0]:
         obj = rotate(obj, -SPEED, 0)
     if keys[1]:
@@ -93,6 +90,8 @@ def get_rotation(obj):
         SCALE -= 1
     if keys[7]:
         SCALE += 1
+    if sum(keys):
+        draw_obj(obj, erase=True)
 
     return obj
 
