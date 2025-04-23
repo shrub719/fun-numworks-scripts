@@ -25,18 +25,18 @@ def to_coords(point, scale):
     return round(x), round(y), (c, c, c)
 
 
-def draw_obj(obj, scale):
+def draw_obj(obj, scale, size):
     coords = [to_coords(point, scale) for point in obj]
     for point in coords:
         x, y, c = point
-        fill_rect(x, y, 5, 5, c)
+        fill_rect(x, y, size, size, c)
 
 
-def erase_obj(obj, scale):
+def erase_obj(obj, scale, size):
     coords = [to_coords(point, scale) for point in obj]
     for point in coords:
         x, y, c = point
-        fill_rect(x, y, 5, 5, "white")
+        fill_rect(x, y, size, size, "white")
 
 
 def rotate(obj, x, y, z):
@@ -82,11 +82,13 @@ def get_keys():
         keydown(KEY_SHIFT),
         keydown(KEY_ALPHA),
         keydown(KEY_MINUS),
-        keydown(KEY_PLUS)
+        keydown(KEY_PLUS),
+        keydown(KEY_MULTIPLICATION),
+        keydown(KEY_DIVISION)
     ]
 
 
-def get_input(x, y, z, scale, in_place=False):
+def get_input(x, y, z, scale, size, in_place=False):
     keys = get_keys()
 
     redraw = sum(keys)
@@ -110,23 +112,29 @@ def get_input(x, y, z, scale, in_place=False):
         scale -= 1
     if keys[7]:
         scale += 1
+    if keys[8]:
+        size -= 1
+    if keys[9]:
+        size += 1
 
-    return redraw, x, y, z, scale
+    return redraw, x, y, z, scale, size
 
 
 x, y, z = 0, 0, 0
 scale = 50
+size = 5
 obj = OBJECT
 
-draw_obj(obj, scale)
+draw_obj(obj, scale, size)
 while True:
     old_scale = scale
-    redraw, x, y, z, scale = get_input(x, y, z, scale, IN_PLACE)
+    old_size = size
+    redraw, x, y, z, scale, size = get_input(x, y, z, scale, size, IN_PLACE)
     if redraw:
         if IN_PLACE:
             new_obj = rotate(obj, x, y, z)
         else:
             new_obj = rotate(OBJECT, x, y, z)
-        erase_obj(obj, old_scale)
+        erase_obj(obj, old_scale, old_size)
         obj = new_obj
-        draw_obj(obj, scale)
+        draw_obj(obj, scale, size)
