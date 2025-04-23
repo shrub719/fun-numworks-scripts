@@ -21,7 +21,7 @@ def rotate_point(rotation, coordinate):
 def to_coords(point, scale):
     x = X + scale * point[0]
     y = Y + scale * point[1]
-    c = 255 - (point[2] + 3) * 255 / 5
+    c = (point[2] + 2) * 255 / 5
     return round(x), round(y), (c, c, c)
 
 
