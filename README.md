@@ -28,14 +28,8 @@ Thanks to [@ZetaMap](https://github.com/ZetaMap) for porting the NumWorks module
 
 ### [Renderer](src/renderer/renderer.py)
 A 3D object renderer which can rotate and scale an object.  
-Also needs a component to be downloaded. Choose the component by changing the import.
-```python
-from <component> import OBJECT
-```
-
-**List of components:**
-- Cube: [r_cube](src/renderer/r_cube.py)
-- Cuboid: [r_cuboid](src/renderer/r_cuboid.py)
+Also needs [Renderer Config](src/renderer/r_config.py) to be downloaded. Edit the constants
+at the bottom to change settings.
 
 `D-Pad`: pitch & yaw  
 `SHIFT / ALPHA`: roll  

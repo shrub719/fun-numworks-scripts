@@ -21,6 +21,8 @@ pyramid = [
 ]
 
 
+# ===== CONFIG =====
+
 # rotation
 IN_PLACE = True
 SPEED = 0.02
