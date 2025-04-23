@@ -25,4 +25,4 @@ pyramid = [
 IN_PLACE = True
 
 # options: cube / cuboid / rings / pyramid
-OBJECT = cube
+OBJECT = pyramid

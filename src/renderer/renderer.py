@@ -22,18 +22,22 @@ def rotate_point(rotation, coordinate):
 def to_coords(point, scale):
     x = X + scale * point[0]
     y = Y + scale * point[1]
-    return round(x), round(y)
+    c = 255 - (point[2] + 3) * 255 / 5
+    return round(x), round(y), (c, c, c)
 
 
-def draw_obj(obj, scale, colour="black"):
+def draw_obj(obj, scale):
     coords = [to_coords(point, scale) for point in obj]
     for point in coords:
-        x, y = point
-        fill_rect(x, y, 5, 5, colour)
+        x, y, c = point
+        fill_rect(x, y, 5, 5, c)
 
 
 def erase_obj(obj, scale):
-    draw_obj(obj, scale, colour="white")
+    coords = [to_coords(point, scale) for point in obj]
+    for point in coords:
+        x, y, c = point
+        fill_rect(x, y, 5, 5, "white")
 
 
 def rotate(obj, x, y, z):
