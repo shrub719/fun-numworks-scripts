@@ -1,9 +1,7 @@
-from r_cube import OBJECT
-
 from kandinsky import *
 from ion import *
 from math import sin, cos
-from time import sleep
+from r_config import OBJECT, IN_PLACE
 
 
 X = 320 // 2
@@ -120,9 +118,12 @@ obj = OBJECT
 draw_obj(obj, scale)
 while True:
     old_scale = scale
-    redraw, x, y, z, scale = get_input(x, y, z, scale)
+    redraw, x, y, z, scale = get_input(x, y, z, scale, IN_PLACE)
     if redraw:
-        new_obj = rotate(OBJECT, x, y, z)
+        if IN_PLACE:
+            new_obj = rotate(obj, x, y, z)
+        else:
+            new_obj = rotate(OBJECT, x, y, z)
         erase_obj(obj, old_scale)
         obj = new_obj
         draw_obj(obj, scale)
