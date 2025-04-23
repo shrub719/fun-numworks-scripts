@@ -21,8 +21,9 @@ pyramid = [
 ]
 
 
-# rotation method
+# rotation
 IN_PLACE = True
+SPEED = 0.02
 
 # options: cube / cuboid / rings / pyramid
 OBJECT = pyramid

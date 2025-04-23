@@ -1,12 +1,11 @@
 from kandinsky import *
 from ion import *
 from math import sin, cos
-from r_config import OBJECT, IN_PLACE
+from r_config import OBJECT, IN_PLACE, SPEED
 
 
 X = 320 // 2
 Y = 222 // 2
-SPEED = 0.02
 
 
 def matrix_mul(A, B):
