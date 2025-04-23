@@ -4,11 +4,11 @@ cube = []
 for a in [-1, 1]:
     for b in [-1, 1]:
         c = -1
-        for i in range(11):
+        for i in range(5):
             cube.append((a, b, c))
             cube.append((a, c, b))
             cube.append((c, a, b))
-            c += 0.2
+            c += 0.5
 
 
 cuboid = [(point[0] * 2, point[1], point[2]) for point in cube]
