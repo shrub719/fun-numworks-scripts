@@ -70,7 +70,7 @@ def rotate(obj, x, y, z):
         ]
         rotation = matrix_mul(r, rotation)
 
-    return [rotate_point(rotation, point) for point in obj]
+    return sorted((rotate_point(rotation, point) for point in obj), key = lambda point: point[2])
 
 
 def get_keys():
