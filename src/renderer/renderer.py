@@ -83,8 +83,8 @@ def get_keys():
         keydown(KEY_ALPHA),
         keydown(KEY_MINUS),
         keydown(KEY_PLUS),
-        keydown(KEY_MULTIPLICATION),
-        keydown(KEY_DIVISION)
+        keydown(KEY_DIVISION),
+        keydown(KEY_MULTIPLICATION)
     ]
 
 
