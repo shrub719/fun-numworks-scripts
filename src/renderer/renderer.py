@@ -26,17 +26,19 @@ def to_coords(point, scale):
 
 
 def draw_obj(obj, scale, size):
+    s = size // 2
     coords = [to_coords(point, scale) for point in obj]
     for point in coords:
         x, y, c = point
-        fill_rect(x, y, size, size, c)
+        fill_rect(x-s, y-s, size, size, c)
 
 
 def erase_obj(obj, scale, size):
+    s = size // 2
     coords = [to_coords(point, scale) for point in obj]
     for point in coords:
         x, y, c = point
-        fill_rect(x, y, size, size, "white")
+        fill_rect(x-s, y-s, size, size, "white")
 
 
 def rotate(obj, x, y, z):
