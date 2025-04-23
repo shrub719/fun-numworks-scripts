@@ -1,12 +1,15 @@
 from math import sin, cos
 
 cube = []
-for i in range(8):
-    i = str(bin(i))[2:]
-    i = "0" * (3 - len(i)) + i
-    point = (int(i[0]), int(i[1]), int(i[2]))
-    point = tuple(x * 2 - 1 for x in point)
-    cube.append(point)
+for a in [-1, 1]:
+    for b in [-1, 1]:
+        c = -1
+        for i in range(11):
+            cube.append((a, b, c))
+            cube.append((a, c, b))
+            cube.append((c, a, b))
+            c += 0.2
+
 
 cuboid = [(point[0] * 2, point[1], point[2]) for point in cube]
 
@@ -28,4 +31,4 @@ IN_PLACE = True
 SPEED = 0.02
 
 # options: cube / cuboid / rings / pyramid
-OBJECT = rings
+OBJECT = cube
