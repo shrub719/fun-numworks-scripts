@@ -14,6 +14,8 @@ O_cuboid = [(point[0] * 2, point[1], point[2]) for point in O_cube]
 
 O_rings = [(sin(t*0.2), cos(t*0.2), 0) for t in range(31)] + [(0, sin(t*0.2), cos(t*0.2)) for t in range(31)]
 O_rings2 = [(sin(t*0.4), cos(t*0.4), 0) for t in range(16)] + [(0, sin(t*0.4), cos(t*0.4)) for t in range(16)] + [(sin(t*0.4), 0, cos(t*0.4)) for t in range(16)]
+O_donut = [(sin(t*0.2), cos(t*0.2), 0) for t in range(31)]
+O_donut = O_donut + [(x, y, z+0.3) for x, y, z in O_donut]
 
 O_pyramid = [
     (-1, -1, -1), 
@@ -39,4 +41,4 @@ SPEED = 0.02
 COLOUR = C_purple
 
 # options: cube / cuboid / rings / rings2
-OBJECT = O_cube
+OBJECT = O_donut
