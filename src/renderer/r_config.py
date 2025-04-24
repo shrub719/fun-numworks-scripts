@@ -40,5 +40,5 @@ SPEED = 0.02
 # options: grey / orange / purple
 COLOUR = C_purple
 
-# options: cube / cuboid / rings / rings2
+# options: cube / cuboid / rings / rings2 / donut
 OBJECT = O_donut
