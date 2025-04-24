@@ -33,7 +33,7 @@ at the bottom to change settings.
 
 `D-Pad`: pitch & yaw  
 `SHIFT / ALPHA`: roll  
-`- / +`: scale
+`- / +`: scale  
 `÷ / ×`: point size 
 
 ### [Canvas](src/canvas.py)
