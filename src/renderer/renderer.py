@@ -1,7 +1,7 @@
 from kandinsky import *
 from ion import *
 from math import sin, cos
-from r_config import OBJECT, IN_PLACE, SPEED
+from r_config import OBJECT, IN_PLACE, SPEED, COLOUR
 
 
 X = 320 // 2
@@ -21,8 +21,8 @@ def rotate_point(rotation, coordinate):
 def to_coords(point, scale):
     x = X + scale * point[0]
     y = Y + scale * point[1]
-    c = (point[2] + 2) * 255 / 5
-    return round(x), round(y), (c, c, c)
+    c = (point[2] + 3) / 5 * 255
+    return round(x), round(y), (COLOUR[0]*c, COLOUR[1]*c, COLOUR[2]*c)
 
 
 def draw_obj(obj, scale, size):

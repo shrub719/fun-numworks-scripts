@@ -13,7 +13,8 @@ for a in [-1, 1]:
 
 cuboid = [(point[0] * 2, point[1], point[2]) for point in cube]
 
-rings = [(sin(t*0.2), cos(t*0.2), 0) for t in range(31)] + [(0, cos(t*0.2), sin(t*0.2)) for t in range(31)]
+rings = [(sin(t*0.2), cos(t*0.2), 0) for t in range(31)] + [(0, sin(t*0.2), cos(t*0.2)) for t in range(31)]
+rings2 = [(sin(t*0.4), cos(t*0.4), 0) for t in range(16)] + [(0, sin(t*0.4), cos(t*0.4)) for t in range(16)] + [(sin(t*0.4), 0, cos(t*0.4)) for t in range(16)]
 
 pyramid = [
     (-1, -1, -1), 
@@ -23,6 +24,9 @@ pyramid = [
     (0, 1.4, 0)
 ]
 
+grey = (0.8, 0.8, 0.8)   # TODO: TEST
+orange = (1, 0.7, 0.2)
+
 
 # ===== CONFIG =====
 
@@ -30,5 +34,8 @@ pyramid = [
 IN_PLACE = True
 SPEED = 0.02
 
-# options: cube / cuboid / rings / pyramid
+# options: grey / orange
+COLOUR = grey
+
+# options: cube / cuboid / rings / rings2
 OBJECT = cube
