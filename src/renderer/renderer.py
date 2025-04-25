@@ -27,6 +27,7 @@ def to_coords(point, scale):
 
 def draw_obj(obj, scale, size):
     s = size // 2
+    # TODO: move to_coords inside loop (?) causes bad performance
     coords = [to_coords(point, scale) for point in obj]
     for point in coords:
         x, y, c = point
@@ -72,6 +73,7 @@ def rotate(obj, x, y, z):
         ]
         rotation = matrix_mul(r, rotation)
 
+    # TODO: turn into for loop with insort
     return sorted((rotate_point(rotation, point) for point in obj), key = lambda point: point[2])
 
 
