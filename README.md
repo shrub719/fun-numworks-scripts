@@ -26,9 +26,9 @@ Thanks to [@ZetaMap](https://github.com/ZetaMap) for porting the NumWorks module
 - [Keys](#keys)
 - [Picker](#picker)
 
-### [Renderer](src/renderer/renderer.py)
+### [Renderer](https://my.numworks.com/python/shrub719/renderer)
 A 3D object renderer which can rotate and scale an object.  
-Also needs [Renderer Config](src/renderer/r_config.py) to be downloaded. Edit the constants
+Also needs [Renderer Config](https://my.numworks.com/python/shrub719/r_config) to be downloaded. Edit the constants
 at the bottom to change settings.
 
 `D-Pad`: pitch & yaw  
@@ -36,7 +36,7 @@ at the bottom to change settings.
 `- / +`: scale  
 `÷ / ×`: point size 
 
-### [Canvas](src/canvas.py)
+### [Canvas](https://my.numworks.com/python/shrub719/canvas)
 A canvas that you can draw on.
 
 `D-Pad`: move cursor  
@@ -47,17 +47,17 @@ A canvas that you can draw on.
 `2`: switch to white/eraser  
 `4 5 6`: red/green/blue
 
-### [Drummer](src/drummer.py)
+### [Drummer](https://my.numworks.com/python/shrub719/drummer)
 Like a drummer/launchpad.
 
 Use the number keys to play the drums. Press `.` to change colours.
 
-### [Keys](src/keys.py)
+### [Keys](https://my.numworks.com/python/shrub719/keys)
 Like one of those MIDI piano YouTube videos.
 
 Use the top row of numbers `7 8 9 ( )` to play the piano keys. Press `EXE` to change colours.
 
-### [Picker](src/picker.py)
+### [Picker](https://my.numworks.com/python/shrub719/picker)
 A simple colour picker.
 
 `4 5 6`: increase R/G/B value  
