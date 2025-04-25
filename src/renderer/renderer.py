@@ -1,6 +1,7 @@
 from kandinsky import *
 from ion import *
 from math import sin, cos
+import numpy as np
 from r_config import OBJECT, IN_PLACE, SPEED, COLOUR
 
 

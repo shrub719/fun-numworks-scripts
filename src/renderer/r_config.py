@@ -47,6 +47,8 @@ C_purple = (0.5, 0.2, 1)
 
 if __name__ == "__main__":
     print("CUBE", O_cube)
+    O_cube = O_cube[O_cube[:, -1].argsort()]
+    print("SORTED CUBE", O_cube,)
     print("CUBOID", O_cuboid)
     print("RINGS", O_rings)
     print("RINGS2", O_rings2)
