@@ -1,11 +1,13 @@
 from kandinsky import *
 from ion import *
 from math import sin, cos
-from r_config import OBJECT, IN_PLACE, SPEED, COLOUR
+from r_config import OBJECT, SPEED, COLOUR
 
 
 X = 320 // 2
 Y = 222 // 2
+S = sin(SPEED)
+C = cos(SPEED)
 
 def to_coords(point, scale):
     x = X + scale * point[0]
@@ -46,7 +48,9 @@ def rotate(obj, x, y, z):
         (0, 0, 1)
     ]
     if x != 0:
-        s, c = sin(x), cos(x)
+        s, c = S, C
+        if x < 0: s = -S
+
         r = [
             (1, 0, 0),
             (0, c, -s),
@@ -54,7 +58,9 @@ def rotate(obj, x, y, z):
         ]
         rotation = matrix_mul(r, rotation)
     if y != 0:
-        s, c = sin(y), cos(y)
+        s, c = S, C
+        if y < 0: s = -S
+
         r = [
             (c, 0, s),
             (0, 1, 0),
@@ -62,7 +68,9 @@ def rotate(obj, x, y, z):
         ]
         rotation = matrix_mul(r, rotation)
     if z != 0:
-        s, c = sin(z), cos(z)
+        s, c = S, C
+        if z < 0: s = -S
+
         r = [
             (c, -s, 0),
             (s, c, 0),
@@ -89,39 +97,36 @@ def get_keys():
     ]
 
 
-def get_input(x, y, z, scale, size, in_place=False):
+def get_input(scale, size):
+    x, y, z = 0, 0, 0
     keys = get_keys()
-
     redraw = sum(keys)
 
-    if in_place:
-        x, y, z = 0, 0, 0
-
-    if keys[0]:
-        x -= SPEED
-    if keys[1]:
-        x += SPEED
-    if keys[2]:
-        y -= SPEED
-    if keys[3]:
-        y += SPEED
-    if keys[4]:
-        z -= SPEED
-    if keys[5]:
-        z += SPEED
-    if keys[6]:
-        scale -= 1
-    if keys[7]:
-        scale += 1
-    if keys[8]:
-        size -= 1
-    if keys[9]:
-        size += 1
+    if redraw:
+        if keys[0]:
+            x = -1
+        if keys[1]:
+            x = 1
+        if keys[2]:
+            y = -1
+        if keys[3]:
+            y = 1
+        if keys[4]:
+            z = -1
+        if keys[5]:
+            z = 1
+        if keys[6]:
+            scale -= 1
+        if keys[7]:
+            scale += 1
+        if keys[8]:
+            size -= 1
+        if keys[9]:
+            size += 1
 
     return redraw, x, y, z, scale, size
 
 
-x, y, z = 0, 0, 0
 scale = 50
 size = 5
 obj = OBJECT
@@ -130,7 +135,7 @@ draw_obj(obj, scale, size)
 while True:
     old_scale = scale
     old_size = size
-    redraw, x, y, z, scale, size = get_input(x, y, z, scale, size, IN_PLACE)
+    redraw, x, y, z, scale, size = get_input(scale, size)
     if redraw:
         new_obj = rotate(obj, x, y, z)
         erase_obj(obj, old_scale, old_size)
