@@ -7,17 +7,6 @@ from r_config import OBJECT, IN_PLACE, SPEED, COLOUR
 X = 320 // 2
 Y = 222 // 2
 
-
-def matrix_mul(A, B):
-    result = [tuple(sum(a*b for a,b in zip(A_row,B_col)) for B_col in zip(*B)) for A_row in A]
-    return result
-
-
-def rotate_point(rotation, coordinate):
-    result = tuple(sum(a * b for a, b in zip(row, coordinate)) for row in rotation)
-    return result
-
-
 def to_coords(point, scale):
     x = X + scale * point[0]
     y = Y + scale * point[1]
@@ -29,17 +18,25 @@ def draw_obj(obj, scale, size):
     s = size // 2
     # TODO: move to_coords inside loop (?) causes bad performance
     coords = [to_coords(point, scale) for point in obj]
-    for point in coords:
-        x, y, c = point
+    for x, y, c in coords:
         fill_rect(x-s, y-s, size, size, c)
 
 
 def erase_obj(obj, scale, size):
     s = size // 2
     coords = [to_coords(point, scale) for point in obj]
-    for point in coords:
-        x, y, c = point
+    for x, y, c in coords:
         fill_rect(x-s, y-s, size, size, "white")
+
+
+def matrix_mul(A, B):
+    result = [tuple(sum(a*b for a,b in zip(A_row,B_col)) for B_col in zip(*B)) for A_row in A]
+    return result
+
+
+def rotate_point(rotation, coordinate):
+    result = tuple(sum(a * b for a, b in zip(row, coordinate)) for row in rotation)
+    return result
 
 
 def rotate(obj, x, y, z):
@@ -135,6 +132,7 @@ while True:
     old_size = size
     redraw, x, y, z, scale, size = get_input(x, y, z, scale, size, IN_PLACE)
     if redraw:
+        new_obj = rotate(obj, x, y, z)
         erase_obj(obj, old_scale, old_size)
-        obj = rotate(obj, x, y, z)
-        draw_obj(obj, scale, size)
+        draw_obj(new_obj, scale, size)
+        obj = new_obj
