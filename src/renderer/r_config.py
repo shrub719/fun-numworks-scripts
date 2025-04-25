@@ -33,8 +33,7 @@ C_purple = (0.5, 0.2, 1)
 
 # ===== CONFIG =====
 
-# rotation
-IN_PLACE = True
+# rotation speed
 SPEED = 0.02
 
 # options: grey / orange / purple

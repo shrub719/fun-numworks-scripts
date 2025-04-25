@@ -133,10 +133,6 @@ while True:
     old_size = size
     redraw, x, y, z, scale, size = get_input(x, y, z, scale, size, IN_PLACE)
     if redraw:
-        if IN_PLACE:
-            new_obj = rotate(obj, x, y, z)
-        else:
-            new_obj = rotate(OBJECT, x, y, z)
         erase_obj(obj, old_scale, old_size)
-        obj = new_obj
+        obj = rotate(obj, x, y, z)
         draw_obj(obj, scale, size)
