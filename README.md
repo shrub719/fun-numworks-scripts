@@ -41,7 +41,8 @@ download [Renderer Config](https://my.numworks.com/python/shrub719/r_config) as 
 A companion script for [Renderer](https://my.numworks.com/python/shrub719/renderer).  
 
 Edit the constants at the bottom for configuration.  
-Objects are lists of (normalised) points as tuples.  
+Objects are lists of (normalised) points as tuples.
+Note that objects with more than 60 points will probably crash the program.  
 Colours are tuples of RGB multipliers, max `(1, 1, 1)`.  
 To add your own objects/colours, write an external script and import it at the bottom.
 
