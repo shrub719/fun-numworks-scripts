@@ -1,7 +1,14 @@
 from kandinsky import *
 from ion import *
 from math import sin, cos
-from r_config import OBJECT, SPEED, COLOUR
+
+try:
+    from r_config import OBJECT, SPEED, COLOUR
+except ModuleNotFoundError:
+    SPEED = 0.05
+    COLOUR = (0.5, 0.2, 1)
+    OBJECT = [(sin(t * 0.2), cos(t * 0.2), 0) for t in range(31)]
+    OBJECT = OBJECT + [(x, y, z + 0.3) for x, y, z in OBJECT]
 
 
 X = 320 // 2
@@ -125,7 +132,7 @@ def get_input(scale, size):
 
 
 scale = 50
-size = 5
+size = 25
 obj = OBJECT
 
 draw_obj(obj, scale, size)

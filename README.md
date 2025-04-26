@@ -21,6 +21,7 @@ Thanks to [@ZetaMap](https://github.com/ZetaMap) for porting the NumWorks module
 ## Scripts
 
 - [Renderer](#renderer)
+  - [Renderer Config](#renderer-config)
 - [Canvas](#canvas)
 - [Drummer](#drummer)
 - [Keys](#keys)
@@ -28,13 +29,22 @@ Thanks to [@ZetaMap](https://github.com/ZetaMap) for porting the NumWorks module
 
 ### [Renderer](https://my.numworks.com/python/shrub719/renderer)
 A 3D object renderer which can rotate and scale an object.  
-Also needs [Renderer Config](https://my.numworks.com/python/shrub719/r_config) to be downloaded. Edit the constants
-at the bottom to change settings.
+For more objects, configuration, and the ability to add custom objects,
+download [Renderer Config](https://my.numworks.com/python/shrub719/r_config) as well.
 
 `D-Pad`: pitch & yaw  
 `SHIFT / ALPHA`: roll  
 `- / +`: scale  
 `÷ / ×`: point size 
+
+#### [Renderer Config](https://my.numworks.com/python/shrub719/r_config)
+A companion script for [Renderer](https://my.numworks.com/python/shrub719/renderer).  
+
+Edit the constants at the bottom for configuration.  
+Objects are lists of (normalised) points as tuples.  
+Colours are tuples of RGB multipliers, max `(1, 1, 1)`.  
+To add your own objects/colours, write an external script and import it at the bottom.
+
 
 ### [Canvas](https://my.numworks.com/python/shrub719/canvas)
 A canvas that you can draw on.
