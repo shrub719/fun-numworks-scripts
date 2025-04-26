@@ -9,6 +9,7 @@ Y = 222 // 2
 S = sin(SPEED)
 C = cos(SPEED)
 
+
 def to_coords(point, scale):
     x = X + scale * point[0]
     y = Y + scale * point[1]
@@ -18,17 +19,13 @@ def to_coords(point, scale):
 
 def draw_obj(obj, scale, size):
     s = size // 2
-    # TODO: move to_coords inside loop (?) causes bad performance
     coords = [to_coords(point, scale) for point in obj]
     for x, y, c in coords:
         fill_rect(x-s, y-s, size, size, c)
 
 
-def erase_obj(obj, scale, size):
-    s = size // 2
-    coords = [to_coords(point, scale) for point in obj]
-    for x, y, c in coords:
-        fill_rect(x-s, y-s, size, size, "white")
+def erase_obj():
+    fill_rect(0, 0, 320, 222, "white")
 
 
 def matrix_mul(A, B):
@@ -137,7 +134,6 @@ while True:
     old_size = size
     redraw, x, y, z, scale, size = get_input(scale, size)
     if redraw:
-        new_obj = rotate(obj, x, y, z)
-        erase_obj(obj, old_scale, old_size)
-        draw_obj(new_obj, scale, size)
-        obj = new_obj
+        obj = rotate(obj, x, y, z)
+        erase_obj()
+        draw_obj(obj, scale, size)
