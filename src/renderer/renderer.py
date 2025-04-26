@@ -4,7 +4,7 @@ from math import sin, cos
 
 try:
     from r_config import OBJECT, SPEED, COLOUR
-except ModuleNotFoundError:
+except ImportError:
     SPEED = 0.05
     COLOUR = (0.5, 0.2, 1)
     OBJECT = [(sin(t * 0.2), cos(t * 0.2), 0) for t in range(31)]
